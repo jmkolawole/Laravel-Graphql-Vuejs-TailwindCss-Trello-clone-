@@ -7,7 +7,7 @@ import store from './vuex.config';
 Vue.use(VueApollo);
 
 const apolloClient = new ApolloClient({
-    uri: 'http://localhost:8000/graphql',
+    uri: 'https://laravel-trello-clone.herokuapp.com/graphql',
      headers: {
         'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').content
     },
