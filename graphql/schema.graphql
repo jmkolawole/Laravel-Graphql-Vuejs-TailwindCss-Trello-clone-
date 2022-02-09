@@ -12,13 +12,13 @@ type Query {
     user(id: ID @eq): User @find
      userBoards(owner_id: ID! @where): [Board!]
         @all
-        @can(ability: "viewOwnedBoards", find: "owner_id", model: "App\\User")
+       """  @can(ability: "viewOwnedBoards", find: "owner_id", model: "App\\User") """
     board(id: ID! @eq) : Board @find 
     me: User @auth
 }
 
 type Mutation {
-    cardAdd(input: CardAddInput! @spread) : Card! @create @can(ability: "createCard", model: "App\\CardList", find: "list_id")
+    cardAdd(input: CardAddInput! @spread) : Card! @create """ @can(ability: "createCard", model: "App\\CardList", find: "list_id") """
     cardDelete(id: ID!): Card @delete @can(ability: "delete", find: "id")
     cardUpdate(id: ID!, title: String): Card @update @can(ability: "update", find: "id")
 
@@ -77,7 +77,6 @@ type Card{
     created_at: DateTime!
     updated_at: DateTime! 
 }
-
 
 
 input CardAddInput {
