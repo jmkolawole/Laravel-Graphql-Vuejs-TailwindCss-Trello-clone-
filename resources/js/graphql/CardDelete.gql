@@ -1,0 +1,5 @@
+mutation deleteCard ($id: ID!){
+  cardDelete(id: $id){
+    id
+  }
+}
